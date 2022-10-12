@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ceasarv2.Controller">
+    <children>
+        <Button fx:id="fileChooseBtn" layoutX="12.0" layoutY="14.0" mnemonicParsing="false" onMouseClicked="#chooseFile" text="Выбрать файл" />
+        <Label fx:id="choosenFileLbl" layoutX="136.0" layoutY="18.0" visible="false" />
+        <RadioButton fx:id="encryptRadioBtn" layoutX="12.0" layoutY="46.0" mnemonicParsing="false" onMouseClicked="#checkEncryptRB" text="Шифровка" />
+        <RadioButton fx:id="decryptRadioBtn" layoutX="11.0" layoutY="70.0" mnemonicParsing="false" onMouseClicked="#checkDecryptRB" text="Расшифровка" />
+        <TextArea fx:id="textFromFileTA" editable="false" layoutX="145.0" layoutY="46.0" maxHeight="327.0" maxWidth="445.0" minHeight="327.0" minWidth="445.0" prefHeight="327.0" prefWidth="445.0" promptText="Текст файла" wrapText="true" />
+        <Button fx:id="startBtn" disable="true" layoutX="12.0" layoutY="348.0" mnemonicParsing="false" onMouseClicked="#start" text="Старт" />
+        <CheckBox fx:id="bruteForceCB" disable="true" layoutX="12.0" layoutY="129.0" mnemonicParsing="false" onMouseClicked="#checkBruteForceCB" text="Brute Force" />
+        <TextField fx:id="keyTextField" layoutX="11.0" layoutY="96.0" prefHeight="25.0" prefWidth="126.0" promptText="Введите сдвиг (1-40)" />
+    </children>
+</AnchorPane>
