@@ -43,6 +43,7 @@ public class Controller extends Window {
     @FXML
     public void chooseFile() throws IOException { //Открытие окна выбора файла и наполнение текстом
         textFromFileTA.setText("");
+        fileContents.clear();
         FileChooser fileChooser = new FileChooser();
         FileChooser.ExtensionFilter filter = new FileChooser.ExtensionFilter("Текстовые файлы (.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(filter);

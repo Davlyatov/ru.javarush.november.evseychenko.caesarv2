@@ -9,7 +9,7 @@ import java.util.LinkedList;
 public class EncryptDecrypt {
 
     public String checkWorkMethod(LinkedList<String> fileContents, int key, File file, String alphabet) throws IOException { //
-        LinkedList<String> endList;
+        LinkedList<String> endList = new LinkedList<>();
         if (key == 0) {
             endList = bruteForce(fileContents, alphabet);
         } else {
