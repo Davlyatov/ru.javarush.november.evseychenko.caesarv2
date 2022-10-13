@@ -35,7 +35,7 @@ public class EncryptDecrypt {
             checkList = encryptionDecryption(checkList, -1, alphabet);
             rightKey = checkEncrypt(checkList);
             if (rightKey) {
-                System.out.println(i+1);
+                System.out.println(i + 1);
                 break;
             }
         }
@@ -59,7 +59,7 @@ public class EncryptDecrypt {
             StringBuilder buffer = new StringBuilder();
             for (int i = 0; i < fileContents.getFirst().length(); i++) {
                 boolean isUpperCase = false;
-                if (Character.isUpperCase(fileContents.getFirst().charAt(i))){ //Проверка на заглавную букву
+                if (Character.isUpperCase(fileContents.getFirst().charAt(i))) { //Проверка на заглавную букву
                     isUpperCase = true;
                     char[] tempCharArray = fileContents.getFirst().toCharArray(); //Разбиение строки на символьный массив для замены заглавной буквы на строчную
                     tempCharArray[i] = Character.toLowerCase(tempCharArray[i]);
@@ -72,7 +72,7 @@ public class EncryptDecrypt {
                         keyValue = alphabet.length() + keyValue;
                     }
                     char replaceValue;
-                    if (isUpperCase){ //Если буква была заглавной, замена строчной проработанной буквы на заглавную
+                    if (isUpperCase) { //Если буква была заглавной, замена строчной проработанной буквы на заглавную
                         replaceValue = Character.toUpperCase(alphabet.charAt(keyValue));
                     } else {
                         replaceValue = alphabet.charAt(keyValue);
