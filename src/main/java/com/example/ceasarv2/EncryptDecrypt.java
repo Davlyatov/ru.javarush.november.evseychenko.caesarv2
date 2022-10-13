@@ -9,7 +9,7 @@ import java.util.LinkedList;
 public class EncryptDecrypt {
 
     public String checkWorkMethod(LinkedList<String> fileContents, int key, File file, String alphabet) throws IOException { //
-        LinkedList<String> endList = new LinkedList<>();
+        LinkedList<String> endList;
         if (key == 0) {
             endList = bruteForce(fileContents, alphabet);
         } else {
@@ -58,13 +58,25 @@ public class EncryptDecrypt {
         while (fileContents.size() > 0) {
             StringBuilder buffer = new StringBuilder();
             for (int i = 0; i < fileContents.getFirst().length(); i++) {
+                boolean isUpperCase = false;
+                if (Character.isUpperCase(fileContents.getFirst().charAt(i))){ //Проверка на заглавную букву
+                    isUpperCase = true;
+                    char[] tempCharArray = fileContents.getFirst().toCharArray(); //Разбиение строки на символьный массив для замены заглавной буквы на строчную
+                    tempCharArray[i] = Character.toLowerCase(tempCharArray[i]);
+                    fileContents.set(0, String.valueOf(tempCharArray));
+                }
                 int charPosition = alphabet.indexOf(fileContents.getFirst().charAt(i));
-                if (charPosition != -1) {
+                if (charPosition != -1) { //Проверка на нахождение символа в алфавите
                     int keyValue = (key + charPosition) % alphabet.length();
                     if (keyValue < 0) {
                         keyValue = alphabet.length() + keyValue;
                     }
-                    char replaceValue = alphabet.charAt(keyValue);
+                    char replaceValue;
+                    if (isUpperCase){ //Если буква была заглавной, замена строчной проработанной буквы на заглавную
+                        replaceValue = Character.toUpperCase(alphabet.charAt(keyValue));
+                    } else {
+                        replaceValue = alphabet.charAt(keyValue);
+                    }
                     buffer.append(replaceValue);
                 } else {
                     buffer.append(fileContents.getFirst().charAt(i));
