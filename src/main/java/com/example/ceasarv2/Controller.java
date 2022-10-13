@@ -79,11 +79,7 @@ public class Controller extends Window {
 
     @FXML
     public void checkBruteForceCB() { //Нажатие на чекбокс брутфорса
-        if (bruteForceCB.isSelected()) {
-            keyTextField.setEditable(false);
-        } else {
-            keyTextField.setEditable(true);
-        }
+        keyTextField.setEditable(!bruteForceCB.isSelected());
     }
 
     @FXML
@@ -106,7 +102,7 @@ public class Controller extends Window {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("");
                 alert.setHeaderText("Неверный сдвиг");
-                alert.setContentText("Введите сдвиг от 1 до " + (ALPHABET.length() + 1) + "!");
+                alert.setContentText("Введите сдвиг от 1 до " + ALPHABET.length() + "!");
                 alert.show();
             }
         } else if (decryptRadioBtn.isSelected()) { //Если нажата дешифрация, отправляем на дешифрацию с последующей проверкой на брутфорс
@@ -134,7 +130,7 @@ public class Controller extends Window {
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("");
                 alert.setHeaderText("Неверный сдвиг");
-                alert.setContentText("Введите сдвиг от 1 до " + (ALPHABET.length() + 1) + " или выберите BruteForce!");
+                alert.setContentText("Введите сдвиг от 1 до " + ALPHABET.length() + " или выберите BruteForce!");
                 alert.show();
             }
         } else {
